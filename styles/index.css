@@ -1,0 +1,318 @@
+@import url(reset.css);
+@import url(vars.css);
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root{
+    font-size: 15px;
+    --FF: 'Josefin Sans', sans-serif;
+    --WGHT-BOLD: 700;
+    --WGHT-REG: 400;
+}
+
+body{
+    background-color: var(--Very-Dark-Blue);
+
+    font-family: var(--FF);
+
+}
+
+
+img{
+    max-inline-size: 100%;
+    object-fit: contain;
+}
+
+.BG>img{
+    position: absolute;
+    inset-block: 0 auto;
+    inset-inline: 50% auto;
+    transform: translateX(-50%);
+    inline-size: min(1600px, 100%);
+    block-size: 300px;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    max-inline-size: 540px;
+    margin-inline: auto;
+
+    padding-block: 4.66rem 3.2rem;
+}
+.logo{
+    font-weight: var(--WGHT-BOLD);
+    font-size: 2.66rem;
+    line-height: 2.66rem;
+    letter-spacing: 1rem;
+    color: #fff;
+}
+.switcher{
+    cursor: pointer;
+    inline-size: 1.73rem;
+    block-size: 1.73rem;
+}
+
+
+.list{
+    margin-inline: auto;
+    inline-size: min(549px, 100%);
+}
+.creater{
+    background: var( --Very-Dark-Desaturated-Blue);
+    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+
+    padding-inline: 1.6rem;
+    padding-block: 1.33rem;
+    margin-block-end: 1.6rem;
+
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+.circle{
+    inline-size: 24px;
+    block-size: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--Very-Dark-Grayish-Blue);
+}
+.newTodo{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--Light-Grayish-Blue);
+
+    font-family: inherit;
+    font-weight: var(--WGHT-REG);
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    letter-spacing: -0.25px;
+}
+.newTodo::placeholder{
+    color: var(--Dar-Grayish-Blue);
+}
+
+
+.todoList{
+    background: var( --Very-Dark-Desaturated-Blue);
+    border-radius: 5px;
+    overflow: auto;
+
+    box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+
+    max-block-size: 444.2px;
+}
+.todoList>li:nth-child(n+2){
+    border-block-start: 1px solid var(--Very-Dark-Grayish-Blue-l);
+}
+
+
+
+.todo{
+    padding-inline: 1.6rem;
+    padding-block: 1.33rem;
+
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+}
+
+.remove{
+    margin-inline-start: auto;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+.todo:hover .remove{
+    opacity: 1;
+}
+
+.checkContainer{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+
+    position: relative;
+
+    display: block;
+
+}
+
+input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.costume{
+    inline-size: 24px;
+    block-size: 24px;
+    background: var(--Very-Dark-Desaturated-Blue);
+    background-clip: padding-box;
+    background-position: center;
+    
+    position: relative;
+    
+    border: 1px solid var(--Very-Dark-Grayish-Blue);
+    border-radius: 50%;
+
+    transition: all .3s ease;
+}
+.border{
+    background: transparent;
+    inline-size: 26px;
+    block-size: 26px;
+    border-radius: 50%;
+    transition: all .3s ease;
+    display: grid;
+    place-items: center;
+}
+
+.checkContainer:hover .border{
+    background: linear-gradient(142deg, rgba(87,221,255,1) 3%, rgba(192,88,243,1) 89%);
+}
+.checkContainer:hover .costume{
+    border: 1px solid transparent;
+}
+.checkContainer input[type="checkbox"]:checked ~ .border .costume{
+    inline-size: 24px;
+    block-size: 24px;
+    border-radius: 50%;
+    background: url(../images/icon-check.svg) no-repeat, linear-gradient(142deg, rgba(87,221,255,1) 3%, rgba(192,88,243,1) 89%);
+    background-position: center;
+    border: 1px solid var(--Very-Dark-Grayish-Blue);
+}
+
+.todo>p{
+    font-weight: var(--WGHT-REG);
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    letter-spacing: -0.25px;
+    color: var(--Light-Grayish-Blue);
+}
+.todo>.todoPara.completed{
+    font-weight: var(--WGHT-REG);
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    letter-spacing: -0.25px;
+    text-decoration: line-through;
+    color: var(--Very-Dark-Grayish-Blue-l);
+}
+
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-inline: 1.6rem;
+    padding-block: 1.33rem;
+
+    color: var(--Very-Dark-Grayish-Blue-l);
+}
+.filter{
+    display: flex;
+    gap: 1.26rem;
+}
+label{
+    cursor: pointer;
+}
+
+
+.clearList{
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+    cursor: pointer;
+}
+
+input[type="radio"]{
+    width: 0px;
+    height: 0px;
+    opacity:0;
+}
+input[type="radio"]:checked+label{
+    color: var(--clr1);
+}
+
+/* light theme */
+html[data-theme="light"] .creater{
+    background: var(--Very-Light-Gray);
+}
+html[data-theme="light"] .newTodo{
+    color: var(--Very-Dark-Grayish-Blue);
+}
+html[data-theme="light"] .newTodo::placeholder{
+    color: var(--Dark-Grayish-Blue);
+}
+
+html[data-theme="light"] .todoList{
+    background: var(--Very-Light-Gray);
+}
+html[data-theme="light"] .options{
+    color: var(--Dark-Grayish-Blue);
+}
+html[data-theme="light"] .costume{
+    background: var(--Very-Light-Gray);
+    border: 1px solid var(--Dark-Grayish-Blue);
+}
+html[data-theme="light"] .checkContainer input[type="checkbox"]:checked ~ .border .costume{
+    border: 1px solid var(--Very-Light-Gray);
+}
+html[data-theme="light"] .todo>p{
+    color: var(--Very-Dark-Grayish-Blue);
+}
+html[data-theme="light"] .todo>.todoPara.completed{
+    color: var(--Light-Grayish-Blue);
+}
+html[data-theme="light"] .todoList>li:nth-child(n+2){
+    border-block-start: 1px solid var(--Light-Grayish-Blue);
+}
+html[data-theme="light"] .todoList{
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+}
+
+
+.filter{
+    display: flex;
+}
+.filterMobile{
+    display: none;
+}
+
+@media (width<540px) {
+   .list,
+    header{
+        max-inline-size: 325px;
+    }
+   .filter{
+    display: none;
+   }
+   .filterMobile{
+       padding-block: 1rem;
+       margin-block: 1.6rem;
+       background: var( --Very-Dark-Desaturated-Blue);
+       box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+       border-radius: 5px;
+       color: var(--Very-Dark-Grayish-Blue-l);
+       display: block;
+   }
+   .filter-mob{
+       display: flex;
+       justify-content: center;
+       gap: 1.4rem;
+   }
+}
