@@ -310,6 +310,9 @@ html[data-theme="light"] .todoList{
        color: var(--Very-Dark-Grayish-Blue-l);
        display: block;
    }
+   html[data-theme="light"] .filterMobile{
+    background: var(--Very-Light-Gray);
+}
    .filter-mob{
        display: flex;
        justify-content: center;
